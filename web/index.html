@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#10243a" />
+  <title>Registro de proveedores · Periferia QA Agent</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">P</div>
+      <div class="brand-copy">
+        <h1>Registro de proveedores</h1>
+        <p>Agente administrativo · Demo técnica</p>
+      </div>
+      <div id="health" class="health-pill"><span class="health-dot"></span><span>Comprobando servicio…</span></div>
+    </header>
+
+    <section class="intro-card">
+      <div>
+        <p class="eyebrow">PERIFERIA · RETO 01</p>
+        <h2>Prepara un paquete con datos verificables</h2>
+        <p>El agente consulta el repositorio maestro, completa los formularios disponibles y señala faltantes, confirmaciones y soportes vencidos. No firma ni envía documentos reales.</p>
+      </div>
+      <div class="intro-icon" aria-hidden="true">✓</div>
+    </section>
+
+    <section class="workspace">
+      <div class="chat-panel">
+        <div class="panel-heading">
+          <div><h2>Conversación</h2><p>Las llamadas a herramientas se muestran a continuación.</p></div>
+          <button id="new-session" class="secondary-button" type="button">Nueva sesión</button>
+        </div>
+        <div id="messages" class="messages" aria-live="polite">
+          <article class="message assistant-message">
+            <div class="message-avatar">IA</div>
+            <div class="message-content"><p>Hola. Puedo procesar cualquiera de los cuatro casos incluidos en la demo. Por ejemplo: <strong>“Procesa el caso ec-corp-andina. Dime qué campos faltan y si el paquete está listo para firma. No envíes nada todavía.”</strong></p></div>
+          </article>
+        </div>
+        <div id="confirmation-banner" class="confirmation-banner hidden" role="status">
+          <strong>Confirmación humana requerida</strong>
+          <p>El agente ha preparado el paquete. Revisa el resumen antes de confirmar la simulación de envío.</p>
+          <div class="confirmation-actions"><button id="confirm-send" class="primary-button" type="button">Confirmar envío simulado</button><button id="cancel-send" class="secondary-button" type="button">No confirmar</button></div>
+        </div>
+        <form id="chat-form" class="composer">
+          <label class="sr-only" for="message-input">Mensaje</label>
+          <textarea id="message-input" rows="2" maxlength="6000" placeholder="Escribe: procesa el caso co-industrias-delta…" required></textarea>
+          <button id="send-button" class="primary-button" type="submit"><span>Enviar</span><span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="privacy-note">Los datos del reto son ficticios. No introduzcas contraseñas ni información real.</p>
+      </div>
+
+      <aside class="side-panel">
+        <div class="panel-heading"><div><h2>Casos disponibles</h2><p>Selecciona un ejemplo para iniciar.</p></div></div>
+        <div class="case-list">
+          <button class="case-card" data-case="co-industrias-delta" type="button"><span class="case-country">CO · EXCEL</span><strong>Industrias Delta</strong><small>Formulario de proveedor y datos bancarios solicitados.</small></button>
+          <button class="case-card" data-case="ec-corp-andina" type="button"><span class="case-country">EC · PDF</span><strong>Corp Andina</strong><small>Identificador extranjero y soporte tributario faltante.</small></button>
+          <button class="case-card" data-case="hn-agroexport-sula" type="button"><span class="case-country">HN · EXCEL</span><strong>Agroexport Sula</strong><small>Campos incompletos y soporte parafiscal vencido.</small></button>
+          <button class="case-card" data-case="pa-logistica-istmo" type="button"><span class="case-country">PA · PORTAL</span><strong>Logística Istmo</strong><small>Valores listos para copiar; portal real fuera de alcance.</small></button>
+        </div>
+        <div class="tool-panel">
+          <div class="panel-heading"><div><h2>Herramientas ejecutadas</h2><p>Resumen de las llamadas del turno.</p></div></div>
+          <div id="tool-calls" class="tool-calls"><p class="empty-state">Todavía no se han ejecutado herramientas.</p></div>
+        </div>
+        <div class="status-legend"><span class="legend-ok">● Correcta</span><span class="legend-error">● Con error</span><span class="legend-confirm">● Requiere confirmación</span></div>
+      </aside>
+    </section>
+    <footer><span>Prototipo para evaluación técnica · Sin firma ni envío real</span><span id="session-label"></span></footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
