@@ -291,7 +291,8 @@ export const generar_formulario = {
           const sheet = workbook.addWorksheet(sheetName);
           for (const field of sheetFields) {
             if (field.celda_etiqueta) sheet.getCell(field.celda_etiqueta).value = field.etiqueta;
-            sheet.getCell(field.celda_valor).value = field.estado === 'lleno' ? stringifyCell(field.valor) : field.estado === 'requiere_confirmacion' ? `CONFIRMAR: ${String(field.valor ?? '')}` : 'PENDIENTE: dato no disponible';
+           const cellValue: string | number | boolean = field.estado === 'lleno' ? stringifyCell(field.valor) : field.estado === 'requiere_confirmacion' ? `CONFIRMAR: ${String(field.valor ?? '')}` : 'PENDIENTE: dato no disponible';
+sheet.getCell(String(field.celda_valor)).value = String(cellValue ?? '');
           }
           sheet.columns.forEach((column) => { if (column) column.width = 32; });
         }
