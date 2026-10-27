@@ -1,0 +1,29 @@
+{
+  "name": "periferia-qa-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reto 01 - Agente de registro como proveedor para Periferia IT Group",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "demo": "tsx demo.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/proveedor.test.ts",
+    "preflight": "node scripts/preflight.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "pdfkit": "^0.16.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.4",
+    "@types/pdfkit": "^0.13.9",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}

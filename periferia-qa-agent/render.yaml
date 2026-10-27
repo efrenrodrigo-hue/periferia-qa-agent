@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: periferia-qa-agent
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: gpt-4.1-mini
+      - key: MAX_AGENT_ITERATIONS
+        value: "25"
+      - key: MAX_SESSION_TOKENS
+        value: "20000"
